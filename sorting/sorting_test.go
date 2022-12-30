@@ -18,3 +18,12 @@ func TestBubbleSort(t *testing.T) {
 		require.True(t, slice[i] <= slice[i+1])
 	}
 }
+
+func TestMergeSort(t *testing.T) {
+	slice := createSlice()
+	sorted := MergeSort(slice)
+	fmt.Println(sorted)
+	for i := 0; i < len(sorted)-1; i++ {
+		require.True(t, sorted[i] <= sorted[i+1])
+	}
+}
