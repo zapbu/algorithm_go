@@ -2,11 +2,9 @@ package list
 
 import (
 	"fmt"
-
-	"golang.org/x/exp/constraints"
 )
 
-type SinglyLinkedList[T constraints.Ordered] struct {
+type SinglyLinkedList[T any] struct {
 	head *SNode[T]
 	tail *SNode[T]
 	len  int
@@ -19,12 +17,12 @@ type SinglyLinkedList[T constraints.Ordered] struct {
 // and both of'em have `Node` for representing their Elements.
 // but it's a bit different.(DoublyLinkedList also has `prev` field additionally.)
 // So I distinguish them with the prefix `S` and `D`
-type SNode[T constraints.Ordered] struct {
+type SNode[T any] struct {
 	Val  T
 	next *SNode[T]
 }
 
-func NewSinglyLinkedList[T constraints.Ordered]() *SinglyLinkedList[T] {
+func NewSinglyLinkedList[T any]() *SinglyLinkedList[T] {
 	head := &SNode[T]{}
 	tail := &SNode[T]{}
 	head.next = tail

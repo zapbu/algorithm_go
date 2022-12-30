@@ -2,23 +2,21 @@ package list
 
 import (
 	"fmt"
-
-	"golang.org/x/exp/constraints"
 )
 
-type DoublyLinkedList[T constraints.Ordered] struct {
+type DoublyLinkedList[T any] struct {
 	head *DNode[T]
 	tail *DNode[T]
 	len  int
 }
 
-type DNode[T constraints.Ordered] struct {
+type DNode[T any] struct {
 	Val  T
 	prev *DNode[T]
 	next *DNode[T]
 }
 
-func NewDoublyLinkedList[T constraints.Ordered]() *DoublyLinkedList[T] {
+func NewDoublyLinkedList[T any]() *DoublyLinkedList[T] {
 	head := &DNode[T]{}
 	tail := &DNode[T]{}
 	head.next, tail.prev = tail, head
